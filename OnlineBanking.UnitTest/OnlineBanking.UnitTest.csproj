@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.9" />
+	  <PackageReference Include="Moq" Version="4.14.7" />
+	  <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
+	  <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
+	  <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+	  <PackageReference Include="NUnit" Version="3.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineBanking.Repository\OnlineBanking.Repository.csproj" />
+    <ProjectReference Include="..\OnlineBanking.Service\OnlineBanking.Service.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,34 @@
+
+<button type="button" (click)="OpenAccountClick()">Open New Account</button>
+
+<table>
+  <tr>
+    <th>
+      Account Number
+    </th>
+    <th>
+      Balance
+    </th>
+    <th>
+      Account Type
+    </th>
+  </tr>
+  <tr *ngFor="let item of accounts">
+    <td>
+      {{item.accountNumber}}
+    </td>
+    <td>
+      {{item.balance}}
+    </td>
+    <td *ngIf="item.accountType != null">
+      {{AccountType[item.accountType.accountType]}}
+    </td>
+    <td *ngIf="item.accountType != null">
+      <input id="amt" type="number" [(ngModel)]="item.withdrawAmount"/>
+      <button type="button" value="Withdraw" (click)="WithdrawAmount(item.withdrawAmount, item.accountType.accountId, item)">Withdraw Amount</button>
+    </td>
+    <td *ngIf="item.accountType != null">
+      <button type="button" value="Deposit" (click)="DepositAmount(item.withdrawAmount, item.accountType.accountId, item)">Deposit Amount</button>
+    </td>
+  </tr>
+</table>
