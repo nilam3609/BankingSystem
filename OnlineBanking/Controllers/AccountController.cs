@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlineBanking.Domain.Dto;
+using OnlineBanking.Service;
 using OnlineBanking.Service.Interface;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -60,6 +61,13 @@ namespace OnlineBanking.Controllers
         {
             var settings = await _accountService.GetClientAccounts(id);
             return settings;
+        }
+
+        // with two constructor 
+        private bool GetAccounts()
+        {
+            var data = new AccountService();
+            return true;
         }
     }
 }

@@ -13,6 +13,11 @@ namespace OnlineBanking.Service
     {
         private readonly IAccountRepository _accountRepository;
 
+        public AccountService()
+        {
+
+        }
+
         public AccountService(IAccountRepository accountRepository)
         {
             _accountRepository = accountRepository;
