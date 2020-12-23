@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using OnlineBanking.Domain;
 using OnlineBanking.Domain.Dto;
+using OnlineBanking.Repository;
+using OnlineBanking.Repository.Interface;
 using OnlineBanking.Service;
 using OnlineBanking.Service.Interface;
 using System.Collections.Generic;
@@ -14,10 +17,15 @@ namespace OnlineBanking.Controllers
     {
         private readonly ILogger<ClientController> _logger;
         private readonly IAccountService _accountService;
+        private readonly IUnitOfWork unitOfWork;
 
         public AccountController()
         {
 
+        }
+        public AccountController(IUnitOfWork unitOfWork)
+        {
+            this.unitOfWork = unitOfWork;
         }
 
         public AccountController(ILogger<ClientController> logger, IAccountService accountService)
@@ -91,6 +99,13 @@ namespace OnlineBanking.Controllers
         }
         public string AccountName { get; private set; }
         public string AccountCode { get; private set; }
+
+
+        public Account GetAccount()
+        {
+            var account = unitOfWork.Accounts.GetById(1);
+            return account;
+        }
        
     }
 }

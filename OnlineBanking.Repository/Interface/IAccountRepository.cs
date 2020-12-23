@@ -1,10 +1,12 @@
-﻿using OnlineBanking.Domain.Dto;
+﻿using OnlineBanking.Domain;
+using OnlineBanking.Domain.Dto;
+using OnlineBanking.Repository.Interface;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OnlineBanking.Repository
 {
-    public interface IAccountRepository
+    public interface IAccountRepository: IRepository<Account>
     {
         Task<AccountResponseDto> AddClientAccount(AccountCreationRequestDto accountCreationRequestDto, int accountNumber);
 

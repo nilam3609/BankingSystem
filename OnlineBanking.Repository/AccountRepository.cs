@@ -11,12 +11,12 @@ namespace OnlineBanking.Repository
     /// <summary>
     /// Account Repository
     /// </summary>
-    public class AccountRepository : IAccountRepository
+    public class AccountRepository : Repository<Account>, IAccountRepository
     {
         private readonly BankContext _bankContext;
         private readonly IMapper _mapper;
 
-        public AccountRepository(BankContext bankContext, IMapper mapper)
+        public AccountRepository(BankContext bankContext, IMapper mapper): base(bankContext)
         {
             _bankContext = bankContext;
             _mapper = mapper;
