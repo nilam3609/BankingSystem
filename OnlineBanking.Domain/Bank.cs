@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineBanking.Common;
+using System;
 
 namespace OnlineBanking.Domain
 {
@@ -8,7 +9,16 @@ namespace OnlineBanking.Domain
     public class Bank
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name;
+        public string _name 
+        {
+            get
+            {
+                 Name.InsertSpaceExtentedMethod();
+                return StringHandler.InsertSpace(Name);
+            }
+            set { Name = value; } 
+        }
         public int Code { get; set; }
         public string StreetAddress1 { get; set; }
         public string StreetAddress2 { get; set; }

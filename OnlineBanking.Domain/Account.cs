@@ -5,7 +5,7 @@ namespace OnlineBanking.Domain
     /// <summary>
     /// Entity for Account
     /// </summary>
-    public class Account
+    public class Account: EntityBase
     {
         public int Id { get; set; }
         public int ClientId { get; set; }
@@ -16,5 +16,17 @@ namespace OnlineBanking.Domain
         public bool IsDeleted { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
+
+        public override bool Validate()
+        {
+            var isValid = true;
+            if (AccountNumber! > 0)
+                isValid = false;
+
+            isValid = true;
+            return isValid;
+        }
     }
+
+    
 }

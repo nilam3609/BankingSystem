@@ -15,6 +15,11 @@ namespace OnlineBanking.Controllers
         private readonly ILogger<ClientController> _logger;
         private readonly IAccountService _accountService;
 
+        public AccountController()
+        {
+
+        }
+
         public AccountController(ILogger<ClientController> logger, IAccountService accountService)
         {
             _logger = logger;
@@ -64,10 +69,28 @@ namespace OnlineBanking.Controllers
         }
 
         // with two constructor 
-        private bool GetAccounts()
+        [HttpGet("GetAccountNameAndId")]
+        public string GetAccountNameAndId()
         {
-            var data = new AccountService();
-            return true;
+            AccountString = "Peter,0189787788";
+            return "Name:" + AccountName + "Account Id:" + AccountCode;
         }
+
+        
+        // override base methods
+        public override string ToString()
+        {
+            return AccountName;
+        }
+
+        public string AccountString { 
+            set {
+                AccountName = value.Split(",")[0];
+                AccountCode = value.Split(",")[1]; 
+            } 
+        }
+        public string AccountName { get; private set; }
+        public string AccountCode { get; private set; }
+       
     }
 }

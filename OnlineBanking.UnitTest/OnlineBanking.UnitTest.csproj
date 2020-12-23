@@ -17,8 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OnlineBanking.Common\OnlineBanking.Common.csproj" />
     <ProjectReference Include="..\OnlineBanking.Repository\OnlineBanking.Repository.csproj" />
     <ProjectReference Include="..\OnlineBanking.Service\OnlineBanking.Service.csproj" />
+    <ProjectReference Include="..\OnlineBanking\OnlineBanking.csproj" />
   </ItemGroup>
 
 </Project>

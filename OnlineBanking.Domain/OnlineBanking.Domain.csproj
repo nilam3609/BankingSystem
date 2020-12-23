@@ -8,4 +8,8 @@
     <None Remove="Client.cs~RF142f2128.TMP" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineBanking.Common\OnlineBanking.Common.csproj" />
+  </ItemGroup>
+
 </Project>
